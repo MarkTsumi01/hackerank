@@ -47,7 +47,6 @@ function getRatio(array $numberList): array
 }
 
 $numberList = [-4, 3, -9, 0, 4, 1];
-// $numberList = [0, 0, 0, 0, 0, 0];
 
 $ratioList = getRatio($numberList);
 
