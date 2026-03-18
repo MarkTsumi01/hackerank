@@ -9,7 +9,7 @@ function calculateRatio(int $count, int $total): float
     if ($count === 0) {
         return 0;
     }
-    
+
     $result = ($count / $total);
 
     return $result;
@@ -18,6 +18,10 @@ function calculateRatio(int $count, int $total): float
 // O(n)
 function getRatio(array $numberList): array
 {
+    if (!$numberList) {
+        return [];
+    }
+
     $total = count($numberList);
     $positiveCount = 0;
     $negativeCount = 0;
