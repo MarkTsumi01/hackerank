@@ -32,6 +32,7 @@ function countAppleAndOrangeInRange(
     return $resultList;
 }
 
+// O(n)
 function countFruitInRange(
     int $houseStartPosition,
     int $houseEndPosition,
@@ -57,6 +58,7 @@ function countFruitInRange(
     return $totalFruit;
 }
 
+// O(1)
 function calculateFallingPosition(int $fruitTreePosition, int $fruitFallDistanceList): int
 {
     $fallPosition = ($fruitTreePosition + $fruitFallDistanceList);
@@ -64,6 +66,7 @@ function calculateFallingPosition(int $fruitTreePosition, int $fruitFallDistance
     return $fallPosition;
 }
 
+// O(1)
 function isWithinRange(
     int $position,
     int $houseStartPosition,

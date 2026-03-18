@@ -31,8 +31,8 @@ function isKangarooMeetPossible(
 }
 
 $firstKangarooStart = 0;
-$firstKangarooJumpDistance = 4;
-$secondKangarooStart = 3;
+$firstKangarooJumpDistance = 3;
+$secondKangarooStart = 4;
 $secondKangarooJumpDistance = 2;
 
 $result = isKangarooMeetPossible(
