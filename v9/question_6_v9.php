@@ -9,11 +9,7 @@ function calculateRatio(int $count, int $total): float
     if ($count === 0) {
         return 0;
     }
-
-    if ($count === 0) {
-        throw new Exception('Divide By Zero');
-    }
-
+    
     $result = ($count / $total);
 
     return $result;
