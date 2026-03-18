@@ -19,7 +19,7 @@ function isKangarooMeetPossible(
     }
 
     $startDifference = ($secondKangarooStart - $firstKangarooStart);
-    $isMeet = (($startDifference % $jumpDistanceDifference) == 0);
+    $isMeet = (($startDifference % $jumpDistanceDifference) === 0);
 
     if (!$isMeet) {
         return $ANSWER;
