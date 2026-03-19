@@ -16,7 +16,7 @@ function removeUnwantTag(string $htmlString, array $allowTag): string
         } elseif ($char === '>') {
             $isInsideTag = false;
             $tag .= '>';
-            $isAllowTag = isAllowTag($tag, $allowTag);
+            $isAllowTag = isAllowTagName($tag, $allowTag);
 
             if ($isAllowTag) {
                 $result .= $tag;
@@ -33,7 +33,7 @@ function removeUnwantTag(string $htmlString, array $allowTag): string
     return $result;
 }
 
-function isAllowTag(string $tag, array $allowTagNameList): bool
+function isAllowTagName(string $tag, array $allowTagNameList): bool
 {
     $tagName = extractTagName($tag);
 
