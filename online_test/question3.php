@@ -1,11 +1,11 @@
 <?php
 
-function removeUnwantTag(string $htmlString, array $allowTag): string
+function removeUnwantTag(string $htmlString, array $allowTagNameList): string
 {
     $isInsideTag = false;
     $result = '';
     $tag = '';
-    $htmlStringLength = strlen($htmlString);
+    $htmlStringLength = strlen($htmlString); 
 
     for ($index = 0; $index < $htmlStringLength; $index++) {
         $char = $htmlString[$index];
@@ -16,7 +16,7 @@ function removeUnwantTag(string $htmlString, array $allowTag): string
         } elseif ($char === '>') {
             $isInsideTag = false;
             $tag .= '>';
-            $isAllowTag = isAllowTagName($tag, $allowTag);
+            $isAllowTag = isAllowTagName($tag, $allowTagNameList); 
 
             if ($isAllowTag) {
                 $result .= $tag;
