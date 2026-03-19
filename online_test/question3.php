@@ -60,8 +60,9 @@ function extractTagName(string $tag): string
 
     for ($index = $start; $index < $tagLength; $index++) {
         $char = $tag[$index];
+        $isNameEnd = ($char === '/' || $char === '>' || $char === ' ');
 
-        if ($char === '/' || $char === '>' || $char === ' ') {
+        if ($isNameEnd) {
             break;
         }
 
