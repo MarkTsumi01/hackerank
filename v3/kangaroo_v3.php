@@ -10,24 +10,24 @@ function isKangarooMeetPossible(
     int $secondKangarooJumpDistance
 ): string 
 {
-    $ANSWER = 'NO';
+    $ANSWER_NO = 'NO';
+    $ANSWER_YES = 'YES';
+    
     $jumpDistanceDifference = ($firstKangarooJumpDistance - $secondKangarooJumpDistance);
     $isLessThanOrEqualZero = ($jumpDistanceDifference <= 0);
 
     if ($isLessThanOrEqualZero) {
-        return $ANSWER;
+        return $ANSWER_NO;
     }
 
     $startDifference = ($secondKangarooStart - $firstKangarooStart);
     $isMeet = (($startDifference % $jumpDistanceDifference) === 0);
 
     if (!$isMeet) {
-        return $ANSWER;
+        return $ANSWER_NO;
     }
 
-    $ANSWER = 'YES';
-
-    return $ANSWER;
+    return $ANSWER_YES;
 }
 
 $firstKangarooStart = 0;
