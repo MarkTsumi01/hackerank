@@ -70,7 +70,7 @@ $sumOdd  = sumList($odd);
 $isEven = isEven($sumEven);
 $isOdd = isOdd($sumOdd);
 
-echo 'even => ' . formatList($even) . PHP_EOL;
-echo 'odd  => ' . formatList($odd)  . PHP_EOL;
-echo 'sumEven = ' . $sumEven . ' => ' . $isEven . PHP_EOL;
-echo 'sumOdd  = ' . $sumOdd  . ' => ' . $isOdd . PHP_EOL;
+echo 'even => ' . formatList($even) . '<br>';
+echo 'odd  => ' . formatList($odd)  . '<br>';
+echo 'sumEven = ' . $sumEven . ' => ' . $isEven . '<br>';
+echo 'sumOdd  = ' . $sumOdd  . ' => ' . $isOdd;
