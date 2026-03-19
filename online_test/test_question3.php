@@ -16,7 +16,7 @@ function removeTagName(string $htmlString, array $allowTagName): string
             $tag .= '>';
             $isInsideTag = false;
 
-            if (isAllowedTag($tag, $allowTagName)) {
+            if (isAllowTag($tag, $allowTagName)) {
                 $result .= $tag;
             }
 

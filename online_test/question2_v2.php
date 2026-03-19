@@ -36,7 +36,7 @@ function isOdd(int $number)
 function formatList(array $numberList): string
 {
     $result    = '[';
-    $lastIndex = (count($numberList) - 1);
+    $lastIndex = (count($numberList)) - 1;
 
     foreach ($numberList as $index => $number) {
         $result .= $number;

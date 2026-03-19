@@ -1,6 +1,24 @@
 <?php
 
 // O(n)
+function groupNumber(array $numberList): array
+{
+    $groupList = [];
+
+    foreach ($numberList as $number) {
+        $isHasKey = haskey($groupList, $number);
+
+        if ($isHasKey) {
+            $groupList = incrementGroup($groupList, $number);
+        } else {
+            $groupList = initGroup($groupList, $number);
+        }
+    }
+
+    return $groupList;
+}
+
+// O(n)
 function hasKey(array $groupList, int $number): bool
 {
     foreach ($groupList as $key => $data) {
@@ -28,24 +46,6 @@ function initGroup(array $groupList, int $number): array
         'count' => 1,
         'sum'   => $number,
     ];
-
-    return $groupList;
-}
-
-// O(n)
-function groupNumber(array $numberList): array
-{
-    $groupList = [];
-
-    foreach ($numberList as $number) {
-        $isHasKey = haskey($groupList, $number);
-
-        if ($isHasKey) {
-            $groupList = incrementGroup($groupList, $number);
-        } else {
-            $groupList = initGroup($groupList, $number);
-        }
-    }
 
     return $groupList;
 }
