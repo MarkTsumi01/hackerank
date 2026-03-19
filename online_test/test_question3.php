@@ -31,7 +31,7 @@ function removeTagName(string $htmlString, array $allowTagName): string
     return $result;
 }
 
-function isAllowedTag(string $tag, array $allowTagName): bool 
+function isAllowTag(string $tag, array $allowTagName): bool 
 {
     $tagName = extractTagName($tag);
 
@@ -47,8 +47,15 @@ function isAllowedTag(string $tag, array $allowTagName): bool
 function extractTagName(string $tag): string
 {
     $name = '';
+    $start = 0;
 
-    for ($index = 0; isset($tag[$index]); $index++) {
+    if (isset($tag[1]) === '/') {
+        $start = 2;
+    } else {
+        $start = 1;
+    }
+
+    for ($index = $start; isset($tag[$index]); $index++) {
         $char = $tag[$index];
 
         if ($char === ' ' || $char === '/' || $char === '>') {
