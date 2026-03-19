@@ -11,7 +11,7 @@ function sumList(array $numberList): int
     return $sum;
 }
 
-function isEven(int $number)
+function isEven(int $number): string
 {
     if (($number % 2) === 0) {
         return 'true';
