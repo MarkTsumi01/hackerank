@@ -1,5 +1,6 @@
 <?php
-function groupNumber($numberList)
+
+function groupNumber(array $numberList): array
 {
     $group = [];
 
@@ -7,7 +8,7 @@ function groupNumber($numberList)
         if (isset($group[$number])) {
             $group[$number]['count']++;
             $group[$number]['sum'] += $number;
-            
+
             continue;
         }
 
@@ -21,5 +22,9 @@ function groupNumber($numberList)
 }
 
 $numberList = [1, 2, 3, 5, 7, 9, 2, 3, 6, 7, 2, 5, 4, 6, 1, 1, 6, 7, 3, 5, 9];
+
 $result = groupNumber($numberList);
-print_r($result);
+
+foreach ($result as $number => $data) {
+    echo $number . ' => มี ' . $data['count'] . ' ตัว =>' . ' sum ' . $data['sum'] . PHP_EOL;
+}

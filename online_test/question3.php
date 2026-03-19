@@ -3,7 +3,13 @@
 function extractTagName($tag)
 {
     $name  = '';
-    $start = isset($tag[1]) && $tag[1] === '/' ? 2 : 1;
+    $start = 0;
+
+    if (isset($tag[1]) && $tag[1] === '/') {
+        $start = 2;
+    } else {
+        $start = 1;
+    }
 
     for ($i = $start; isset($tag[$i]); $i++) {
         $char = $tag[$i];

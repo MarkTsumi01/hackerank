@@ -1,5 +1,6 @@
 <?php
 
+// O(n)
 function hasKey(array $groupList, int $number): bool
 {
     foreach ($groupList as $key => $data) {
@@ -11,24 +12,27 @@ function hasKey(array $groupList, int $number): bool
     return false;
 }
 
-function incrementGroup(int $group, int $number): int
+// O(1)
+function incrementGroup(array $groupList, int $number): array
 {
-    $group[$number]['count']++;
-    $group[$number]['sum'] += $number;
+    $groupList[$number]['count']++;
+    $groupList[$number]['sum'] += $number;
 
-    return $group;
+    return $groupList;
 }
 
-function initGroup(int $group, int $number): int
+// O(1)
+function initGroup(array $groupList, int $number): array
 {
-    $group[$number] = [
+    $groupList[$number] = [
         'count' => 1,
         'sum'   => $number,
     ];
 
-    return $group;
+    return $groupList;
 }
 
+// O(n)
 function groupNumber(array $numberList): array
 {
     $groupList = [];
