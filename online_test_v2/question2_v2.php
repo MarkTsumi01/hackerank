@@ -1,5 +1,6 @@
 <?php
 
+// O(n)
 function calculateSum(array $numberList): int
 {
     $sum = 0;
@@ -11,13 +12,15 @@ function calculateSum(array $numberList): int
     return $sum;
 }
 
+// O(1)
 function isEven(int $number): bool
 {
-    $isEven = ($number % 2) === 0;
+    $isEven = (($number % 2) === 0);
 
     return $isEven;
 }
 
+// O(1)
 function isOdd(int $number): bool
 {
     $isOdd = !isEven($number);
@@ -25,10 +28,11 @@ function isOdd(int $number): bool
     return $isOdd;
 }
 
+// O(n)
 function formatNumberList(array $numberList): string
 {
-    $result    = '[';
-    $lastIndex = (count($numberList)) - 1;
+    $result = '[';
+    $lastIndex = ((count($numberList)) - 1);
 
     foreach ($numberList as $index => $number) {
         $result .= $number;
@@ -37,7 +41,7 @@ function formatNumberList(array $numberList): string
             $result .= ', ';
         }
     }
-    
+
     $result .= ']';
 
     return $result;
@@ -55,12 +59,12 @@ foreach ($numberList as $number) {
     }
 }
 
-$sumEven       = calculateSum($evenList);
-$sumOdd        = calculateSum($oddList);
-$isEvenSumEven = isEven($sumEven);
-$isOddSumOdd   = isOdd($sumOdd);
+$sumEven = calculateSum($evenList);
+$sumOdd = calculateSum($oddList);
+$isEven = isEven($sumEven);
+$isOdd = isOdd($sumOdd);
 
 echo 'even => ' . formatNumberList($evenList) . '<br>';
 echo 'odd  => ' . formatNumberList($oddList)  . '<br>';
-echo 'sumEven = ' . $sumEven . ' => ' . ($isEvenSumEven ? 'true' : 'false') . '<br>';
-echo 'sumOdd  = ' . $sumOdd  . ' => ' . ($isOddSumOdd  ? 'true' : 'false');
+echo 'sumEven = ' . $sumEven . ' => ' . ($isEven ? 'true' : 'false') . '<br>';
+echo 'sumOdd  = ' . $sumOdd  . ' => ' . ($isOdd  ? 'true' : 'false');
