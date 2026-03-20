@@ -1,6 +1,6 @@
 <?php
 
-function removeUnwantTag(string $htmlString, array $allowTagNameList): string
+function removeUnwantedTag(string $htmlString, array $allowTagNameList): string
 {
     $isInsideTag = false;
     $result = '';
@@ -75,6 +75,6 @@ function extractTagName(string $tag): string
 $htmlString = '<div><h2>What is Lorem Ipsum?</h2><h3>What is Lorem Ipsum?</h3><span>What is Lorem Ipsum?</span><p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br /> <br />960s with the versions of Lorem Ipsum.</p></div>';
 $allowTagNameList = ['br', 'p'];
 
-$result = removeUnwantTag($htmlString, $allowTagNameList);
+$result = removeUnwantedTag($htmlString, $allowTagNameList);
 
 echo $result;
