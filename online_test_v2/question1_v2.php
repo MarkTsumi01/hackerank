@@ -7,11 +7,13 @@ function groupNumber(array $numberList): array
 
     foreach ($numberList as $number) {
         $hasGroup = hasGroup($groupList, $number);
+        echo $hasGroup . '<br>';
 
-        if ($hasGroup) {
-            $groupList = incrementGroup($groupList, $number);
-        } else {
+
+        if (!$hasGroup) {
             $groupList = initGroup($groupList, $number);
+        } else {
+            $groupList = incrementGroup($groupList, $number);
         }
     }
 
