@@ -51,8 +51,8 @@ $groupList = groupNumber($sortedList);
 $result = '';
 
 foreach ($groupList as $group) {
-    $number = $group['number'];
-    $count = ' => count: ' . $group['count'];
+    $number = $group['number'] . ' => ';
+    $count = ' มี ' . $group['count'] . ' ตัว => ';
     $sum = ' sum: ' . $group['sum'] . '<br>';
     $result .= $number . $count . $sum;
 }
