@@ -23,20 +23,20 @@ function isEven(int $number): bool
 // O(n)
 function formatNumberList(array $numberList): string
 {
-    $result = '[';
+    $formatList = '[';
     $lastIndex = ((count($numberList)) - 1);
 
     foreach ($numberList as $index => $number) {
-        $result .= $number;
+        $formatList .= $number;
 
         if ($index < $lastIndex) {
-            $result .= ', ';
+            $formatList .= ', ';
         }
     }
 
-    $result .= ']';
+    $formatList .= ']';
 
-    return $result;
+    return $formatList;
 }
 
 $numberList = [23, 13, 56, 12, 7, 89, 33, 20, 34, 8, 66, 10, 16, 72, 4, 3, 11, 55, 16, 19, 47];

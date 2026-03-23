@@ -9,7 +9,6 @@ function groupNumber(array $numberList): array
         $hasGroup = hasGroup($groupList, $number);
         echo $hasGroup . '<br>';
 
-
         if (!$hasGroup) {
             $groupList = initGroup($groupList, $number);
         } else {

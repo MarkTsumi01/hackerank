@@ -3,17 +3,19 @@
 // O(n)
 function groupNumber(array $numberList): array
 {
-    $groupMap = [];
+    $groupList = [];
 
     foreach ($numberList as $number) {
-        if (!isset($groupMap[$number])) {
-            $groupMap[$number] = initGroup($number);
-        } else {
-            $groupMap[$number] = incrementGroup($groupMap[$number], $number);
+        if (!isset($groupList[$number])) {
+            $groupList[$number] = initGroup($number);
+
+            continue;
         }
+
+        $groupList[$number] = incrementGroup($groupList[$number]);
     }
 
-    return $groupMap;
+    return $groupList;
 }
 
 // O(1)
@@ -29,11 +31,11 @@ function initGroup(int $number): array
 }
 
 // O(1)
-function incrementGroup(array $group): array
+function incrementGroup(array $groupList): array
 {
-    $updatedGroup = $group;
+    $updatedGroup = $groupList;
     $updatedGroup['count']++;
-    $updatedGroup['sum'] += $group['number'];
+    $updatedGroup['sum'] += $groupList['number'];
 
     return $updatedGroup;
 }
@@ -41,29 +43,30 @@ function incrementGroup(array $group): array
 // O(n^2)
 function sortList(array $numberList): array
 {
-    $listLength = count($numberList) - 1;
-    $result = $numberList;
+    $lastIndex = (count($numberList) - 1);
+    $sortedList = $numberList;
 
-    for ($outerIndex = 0; $outerIndex < $listLength; $outerIndex++) {
-        for ($innerIndex = 0; $innerIndex < $listLength; $innerIndex++) {
-            if ($result[$innerIndex] > $result[$innerIndex + 1]) {
-                $temp = $result[$innerIndex];
-                $result[$innerIndex] = $result[$innerIndex + 1];
-                $result[$innerIndex + 1] = $temp;
+    for ($outerIndex = 0; $outerIndex < $lastIndex; $outerIndex++) {
+        for ($innerIndex = 0; $innerIndex < $lastIndex; $innerIndex++) {
+            if ($sortedList[$innerIndex] > $sortedList[$innerIndex + 1]) {
+                $temp = $sortedList[$innerIndex];
+                $sortedList[$innerIndex] = $sortedList[$innerIndex + 1];
+                $sortedList[$innerIndex + 1] = $temp;
             }
         }
     }
 
-    return $result;
+    return $sortedList;
 }
 
 $numberList = [1, 2, 3, 5, 7, 9, 2, 3, 6, 7, 2, 5, 4, 6, 1, 1, 6, 7, 3, 5, 9];
 
 $sortedList = sortList($numberList);
-$groupMap   = groupNumber($sortedList);
+$groupList = groupNumber($sortedList);
+$result = '';
 
-foreach ($groupMap as $group) {
-    $output = $group['number'] . ' => count: ' . $group['count'] . ' sum: ' . $group['sum'] . '<br>';
-    
-    echo $output;
+foreach ($groupList as $group) {
+    $result .= $group['number'] . ' => count: ' . $group['count'] . ' sum: ' . $group['sum'] . '<br>';
 }
+
+echo $result;
