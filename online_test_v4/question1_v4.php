@@ -31,12 +31,12 @@ function sortList(array $numberList): array
 
     for ($outerIndex = 0; $outerIndex < $lastIndex; $outerIndex++) {
         for ($innerIndex = 0; $innerIndex < $lastIndex; $innerIndex++) {
-            $frontNumber = $sortedList[$innerIndex];
-            $backNumber = $sortedList[$innerIndex + 1];
+            $leftNumber = $sortedList[$innerIndex];
+            $rightNumber = $sortedList[$innerIndex + 1];
 
-            if ($frontNumber > $backNumber) {
-                $sortedList[$innerIndex] = $backNumber;
-                $sortedList[$innerIndex + 1] = $frontNumber;
+            if ($leftNumber > $rightNumber) {
+                $sortedList[$innerIndex] = $rightNumber;
+                $sortedList[$innerIndex + 1] = $leftNumber;
             }
         }
     }
@@ -51,10 +51,10 @@ $groupList = groupNumber($sortedList);
 $result = '';
 
 foreach ($groupList as $group) {
-    $result .= 
-            $group['number'] . 
-            ' => count: ' . $group['count'] . 
-            ' sum: ' . $group['sum'] . '<br>';
+    $number = $group['number'];
+    $count = ' => count: ' . $group['count'];
+    $sum = ' sum: ' . $group['sum'] . '<br>';
+    $result .= $number . $count . $sum;
 }
 
 echo $result;
