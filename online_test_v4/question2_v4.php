@@ -46,17 +46,23 @@ $oddList  = [];
 foreach ($numberList as $number) {
     if (isEven($number)) {
         $evenList[] = $number;
-    } else {
-        $oddList[] = $number;
+
+        continue;
     }
+
+    $oddList[] = $number;
 }
+
+$formatEvenList = formatNumberList($evenList);
+$formatOddList = formatNumberList($oddList);
 
 $sumEven = calculateSum($evenList);
 $sumOdd = calculateSum($oddList);
-$isEven = isEven($sumEven);
-$isOdd = !isEven($sumOdd);
 
-echo 'even => ' . formatNumberList($evenList) . '<br>';
-echo 'odd  => ' . formatNumberList($oddList)  . '<br>';
-echo 'sumEven = ' . $sumEven . ' => ' . ($isEven ? 'true' : 'false') . '<br>';
-echo 'sumOdd  = ' . $sumOdd  . ' => ' . ($isOdd  ? 'true' : 'false');
+$isEven = (isEven($sumEven) ? 'true' : 'false');
+$isOdd = (!isEven($sumOdd) ? 'true' : 'false');
+
+echo 'even => ' . $formatEvenList . '<br>';
+echo 'odd  => ' . $formatOddList  . '<br>';
+echo 'sumEven = ' . $sumEven . ' => ' . $isEven . '<br>';
+echo 'sumOdd  = ' . $sumOdd  . ' => ' . $isOdd;
