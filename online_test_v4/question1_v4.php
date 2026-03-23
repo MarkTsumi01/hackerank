@@ -51,10 +51,10 @@ $groupList = groupNumber($sortedList);
 $result = '';
 
 foreach ($groupList as $group) {
-    $number = $group['number'] . ' => ';
-    $count = ' มี ' . $group['count'] . ' ตัว => ';
-    $sum = ' sum: ' . $group['sum'] . '<br>';
-    $result .= $number . $count . $sum;
+    $number = $group['number'];
+    $count = $group['count'];
+    $sum = $group['sum'];
+    $result .= $number . ' => ' . ' มี ' . $count . ' ตัว => ' . ' sum: ' . $sum . '<br>';
 }
 
 echo $result;
