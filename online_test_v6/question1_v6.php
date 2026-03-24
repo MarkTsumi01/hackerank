@@ -1,7 +1,7 @@
 <?php
 
 // O(n)
-function summaryGroupNumber(array $numberList): array
+function sumGroupNumber(array $numberList): array
 {
     $groupList = [];
 
@@ -45,7 +45,7 @@ function sortList(array $numberList): array
 $numberList = [1, 2, 3, 5, 7, 9, 2, 3, 6, 7, 2, 5, 4, 6, 1, 1, 6, 7, 3, 5, 9];
 
 $sortedList = sortList($numberList);
-$groupList = summaryGroupNumber($sortedList);
+$groupList = sumGroupNumber($sortedList);
 $result = '';
 
 foreach ($groupList as $group) {

@@ -1,6 +1,30 @@
 <?php
 
 // O(n)
+function seperateOddEvenNumber(array $numberList): array
+{
+    $evenNumberList = [];
+    $oddNumberList = [];
+
+    foreach ($numberList as $number) {
+        if (isEven($number)) {
+            $evenNumberList[] = $number;
+
+            continue;
+        }
+
+        $oddNumberList[] = $number;
+    }
+
+    $result = [
+        'evenNumber' => $evenNumberList, 
+        'oddNumber' => $oddNumberList
+    ];
+
+    return $result;
+}
+
+// O(n)
 function calculateSum(array $numberList): int
 {
     $sum = 0;
@@ -20,51 +44,22 @@ function isEven(int $number): bool
     return $isEven;
 }
 
-// O(n)
-function formatNumberList(array $numberList): string
-{
-    $formatList = '[';
-    $lastIndex = ((count($numberList)) - 1);
-
-    foreach ($numberList as $index => $number) {
-        $formatList .= $number;
-
-        if ($index < $lastIndex) {
-            $formatList .= ', ';
-        }
-    }
-
-    $formatList .= ']';
-
-    return $formatList;
-}
-
 $numberList = [23, 13, 56, 12, 7, 89, 33, 20, 34, 8, 66, 10, 16, 72, 4, 3, 11, 55, 16, 19, 47];
-$evenList = [];
-$oddList  = [];
 
-foreach ($numberList as $number) {
-    if (isEven($number)) {
-        $evenList[] = $number;
+$seperateNumberList = seperateOddEvenNumber($numberList);
 
-        continue;
-    }
+$sumEven = calculateSum($seperateNumberList['evenNumber']);
+$sumOdd = calculateSum($seperateNumberList['oddNumber']);
 
-    $oddList[] = $number;
-}
+$evenStatus = (isEven($sumEven) ? 'true' : 'false');
+$oddStatus = (!isEven($sumOdd) ? 'true' : 'false');
 
-$formatEvenList = formatNumberList($evenList);
-$formatOddList = formatNumberList($oddList);
-
-$sumEven = calculateSum($evenList);
-$sumOdd = calculateSum($oddList);
-
-$isEven = (isEven($sumEven) ? 'true' : 'false');
-$isOdd = (!isEven($sumOdd) ? 'true' : 'false');
+$formatEvenList = implode(', ', $seperateNumberList['evenNumber']);
+$formatOddList = implode(', ', $seperateNumberList['oddNumber']);
 
 $output  = 'even => ' . $formatEvenList . '<br>';
 $output .= 'odd  => ' . $formatOddList  . '<br>';
-$output .= 'sumEven = ' . $sumEven . ' => ' . $isEven . '<br>';
-$output .= 'sumOdd  = ' . $sumOdd  . ' => ' . $isOdd;
+$output .= 'sumEven = ' . $sumEven . ' => ' . $evenStatus . '<br>';
+$output .= 'sumOdd  = ' . $sumOdd  . ' => ' . $oddStatus;
 
 echo $output;
