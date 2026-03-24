@@ -1,19 +1,18 @@
 <?php
 
 // O(n)
-function groupNumber(array $numberList): array
+function aggregateGroupNumber(array $numberList): array
 {
     $groupList = [];
+    // $numberStatsMap = [];
 
     foreach ($numberList as $number) {
         if (!isset($groupList[$number])) {
             $groupList[$number] = [
                 'number' => $number,
-                'count' => 1,
-                'sum' => $number,
+                'count' => 0,
+                'sum' => 0,
             ];
-
-            continue;
         }
 
         $groupList[$number]['count']++;
@@ -47,7 +46,7 @@ function sortList(array $numberList): array
 $numberList = [1, 2, 3, 5, 7, 9, 2, 3, 6, 7, 2, 5, 4, 6, 1, 1, 6, 7, 3, 5, 9];
 
 $sortedList = sortList($numberList);
-$groupList = groupNumber($sortedList);
+$groupList = aggregateGroupNumber($sortedList);
 $result = '';
 
 foreach ($groupList as $group) {

@@ -62,7 +62,9 @@ $sumOdd = calculateSum($oddList);
 $isEven = (isEven($sumEven) ? 'true' : 'false');
 $isOdd = (!isEven($sumOdd) ? 'true' : 'false');
 
-echo 'even => ' . $formatEvenList . '<br>';
-echo 'odd  => ' . $formatOddList  . '<br>';
-echo 'sumEven = ' . $sumEven . ' => ' . $isEven . '<br>';
-echo 'sumOdd  = ' . $sumOdd  . ' => ' . $isOdd;
+$output  = 'even => ' . $formatEvenList . '<br>';
+$output .= 'odd  => ' . $formatOddList  . '<br>';
+$output .= 'sumEven = ' . $sumEven . ' => ' . $isEven . '<br>';
+$output .= 'sumOdd  = ' . $sumOdd  . ' => ' . $isOdd;
+
+echo $output;
