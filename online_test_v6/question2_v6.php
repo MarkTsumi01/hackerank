@@ -1,7 +1,7 @@
 <?php
 
 // O(n)
-function seperateOddEvenNumber(array $numberList): array
+function separateEvenOddNumberList(array $numberList): array //แก้ชื่อฟังก์ชั่น seperateParityNumber
 {
     $evenNumberList = [];
     $oddNumberList = [];
@@ -17,8 +17,8 @@ function seperateOddEvenNumber(array $numberList): array
     }
 
     $result = [
-        'evenNumber' => $evenNumberList, 
-        'oddNumber' => $oddNumberList
+        'evenNumberList' => $evenNumberList, //แก้ชื่อคีย์ evenNumberList
+        'oddNumberList' => $oddNumberList
     ];
 
     return $result;
@@ -46,20 +46,22 @@ function isEven(int $number): bool
 
 $numberList = [23, 13, 56, 12, 7, 89, 33, 20, 34, 8, 66, 10, 16, 72, 4, 3, 11, 55, 16, 19, 47];
 
-$seperateNumberList = seperateOddEvenNumber($numberList);
+$seperateNumberList = separateEvenOddNumberList($numberList);
+$evenNumberList = $seperateNumberList['evenNumberList'];
+$oddNumberList = $seperateNumberList['oddNumberList'];
 
-$sumEven = calculateSum($seperateNumberList['evenNumber']);
-$sumOdd = calculateSum($seperateNumberList['oddNumber']);
+$sumEven = calculateSum($evenNumberList);
+$sumOdd = calculateSum($oddNumberList);
 
 $evenStatus = (isEven($sumEven) ? 'true' : 'false');
 $oddStatus = (!isEven($sumOdd) ? 'true' : 'false');
 
-$formatEvenList = implode(', ', $seperateNumberList['evenNumber']);
-$formatOddList = implode(', ', $seperateNumberList['oddNumber']);
+$formatEvenList = implode(', ', $evenNumberList);
+$formatOddList = implode(', ', $oddNumberList);
 
-$output  = 'even => ' . $formatEvenList . '<br>';
-$output .= 'odd  => ' . $formatOddList  . '<br>';
-$output .= 'sumEven = ' . $sumEven . ' => ' . $evenStatus . '<br>';
-$output .= 'sumOdd  = ' . $sumOdd  . ' => ' . $oddStatus;
+$output  = sprintf('even => %s<br>', $formatEvenList);
+$output .= sprintf('odd  => %s<br>', $formatOddList);
+$output .= sprintf('sumEven = %d => %s<br>', $sumEven, $evenStatus);
+$output .= sprintf('sumOdd  = %d => %s', $sumOdd, $oddStatus);
 
 echo $output;
