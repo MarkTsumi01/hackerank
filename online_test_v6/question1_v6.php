@@ -1,7 +1,7 @@
 <?php
 
 // O(n)
-function buildNumberGroups(array $numberList): array
+function prepareGroupNumberList(array $numberList): array
 {
     $groupList = [];
 
@@ -22,19 +22,20 @@ function buildNumberGroups(array $numberList): array
 }
 
 // O(n^2)
-function sortListAscending(array $numberList): array
+function sortList(array $numberList): array
 {
     $lastIndex = (count($numberList) - 1);
     $sortedList = $numberList;
 
     for ($outerIndex = 0; $outerIndex < $lastIndex; $outerIndex++) {
         for ($innerIndex = 0; $innerIndex < $lastIndex; $innerIndex++) {
+            $nextInnerIndex = [$innerIndex + 1];
             $currentNumber = $sortedList[$innerIndex];
-            $nextNumber = $sortedList[$innerIndex + 1];
+            $nextNumber = $sortedList[$nextInnerIndex];
 
             if ($currentNumber > $nextNumber) {
                 $sortedList[$innerIndex] = $nextNumber;
-                $sortedList[$innerIndex + 1] = $currentNumber;
+                $sortedList[$nextInnerIndex] = $currentNumber;
             }
         }
     }
@@ -44,15 +45,15 @@ function sortListAscending(array $numberList): array
 
 $numberList = [1, 2, 3, 5, 7, 9, 2, 3, 6, 7, 2, 5, 4, 6, 1, 1, 6, 7, 3, 5, 9];
 
-$sortedList = sortListAscending($numberList);
-$groupList = buildNumberGroups($sortedList);
+$sortedList = sortList($numberList);
+$groupList = prepareGroupNumberList($sortedList);
 
 $result = '';
 
 foreach ($groupList as $group) {
     $number = $group['number'];
-    $count  = $group['count'];
-    $sum    = $group['sum'];
+    $count = $group['count'];
+    $sum = $group['sum'];
     $result .= sprintf('%d => มี %d ตัว => sum: %d<br>', $number, $count, $sum);
 }
 

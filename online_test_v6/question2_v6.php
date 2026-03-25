@@ -60,9 +60,7 @@ $oddStatus = (!isEven($sumOdd) ? 'true' : 'false');
 $formatEvenList = implode(', ', $evenNumberList);
 $formatOddList = implode(', ', $oddNumberList);
 
-$output  = sprintf('even => %s<br>', $formatEvenList);
-$output .= sprintf('odd  => %s<br>', $formatOddList);
-$output .= sprintf('sumEven = %d => %s<br>', $sumEven, $evenStatus);
-$output .= sprintf('sumOdd  = %d => %s', $sumOdd, $oddStatus);
-
-echo $output;
+echo 'even => ' . $formatEvenList . '<br>';
+echo 'odd  => ' . $formatOddList  . '<br>';
+echo 'sumEven = ' . $sumEven . ' => ' . $evenStatus . '<br>';
+echo 'sumOdd  = ' . $sumOdd  . ' => ' . $oddStatus;
