@@ -29,7 +29,7 @@ function sortList(array $numberList): array
 
     for ($outerIndex = 0; $outerIndex < $lastIndex; $outerIndex++) {
         for ($innerIndex = 0; $innerIndex < $lastIndex; $innerIndex++) {
-            $nextInnerIndex = [$innerIndex + 1];
+            $nextInnerIndex = ($innerIndex + 1);
             $currentNumber = $sortedList[$innerIndex];
             $nextNumber = $sortedList[$nextInnerIndex];
 
@@ -54,7 +54,7 @@ foreach ($groupList as $group) {
     $number = $group['number'];
     $count = $group['count'];
     $sum = $group['sum'];
-    $result .= sprintf('%d => มี %d ตัว => sum: %d<br>', $number, $count, $sum);
+    $result .= sprintf('%d => มี %d ตัว => sum: %d <br>', $number, $count, $sum);
 }
 
 echo $result;
