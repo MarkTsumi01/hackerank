@@ -1,7 +1,7 @@
 <?php
 
 // O(n)
-function separateEvenOddNumberList(array $numberList): array //แก้ชื่อฟังก์ชั่น seperateParityNumber
+function separateParityNumberList(array $numberList): array 
 {
     $evenNumberList = [];
     $oddNumberList = [];
@@ -17,7 +17,7 @@ function separateEvenOddNumberList(array $numberList): array //แก้ชื�
     }
 
     $result = [
-        'evenNumberList' => $evenNumberList, //แก้ชื่อคีย์ evenNumberList
+        'evenNumberList' => $evenNumberList, 
         'oddNumberList' => $oddNumberList
     ];
 
@@ -46,7 +46,8 @@ function isEven(int $number): bool
 
 $numberList = [23, 13, 56, 12, 7, 89, 33, 20, 34, 8, 66, 10, 16, 72, 4, 3, 11, 55, 16, 19, 47];
 
-$seperateNumberList = separateEvenOddNumberList($numberList);
+$seperateNumberList = separateParityNumberList($numberList);
+
 $evenNumberList = $seperateNumberList['evenNumberList'];
 $oddNumberList = $seperateNumberList['oddNumberList'];
 
